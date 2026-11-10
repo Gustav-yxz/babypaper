@@ -1,0 +1,39 @@
+<svg width="650" height="470" version="1.1" viewBox="0 0 172 124" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(0 -173)" font-size="9px" fill="none" stroke-width=".8">
+<path id="a" d="m34 267s32 0.8 42-44c10-45 31-45 31-45" stroke="#f00"/>
+<use transform="translate(21)" xlink:href="#a"/>
+<use transform="translate(50)" xlink:href="#a"/>
+<path d="m84 267h-50" stroke="#f00"/>
+<path d="m106 178h63" stroke="#f00"/>
+<g fill="#f00">
+<text x="84" y="294">[Ago]</text>
+<text x="28" y="283">10</text>
+<text x="82" y="283">1</text>
+<text x="128" y="283">10</text>
+<g font-size="7px">
+<text x="40" y="279">–2</text>
+<text x="139" y="279">2</text>
+</g>
+</g>
+<g fill="#00f">
+<text x="78" y="226">0</text>
+<text x="99" y="226">10</text>
+<text x="128" y="226">100</text>
+<text x="136" y="248">[Ant]</text>
+</g>
+<g fill="#000">
+<text x="1" y="181">100%</text>
+<text x="8" y="226">50%</text>
+<text x="13" y="272">0%</text>
+</g>
+<g stroke="#000">
+<path d="m34 222h-7"/>
+<path d="m34 177h-7"/>
+<path d="m34 268h-7"/>
+<path d="m34 275v-7"/>
+<path d="m84 275v-7"/>
+<path d="m134 275v-7"/>
+<rect x="34" y="177" width="135" height="91"/>
+</g>
+</g>
+</svg>

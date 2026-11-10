@@ -1,0 +1,39 @@
+<svg width="400" height="400" version="1.1" viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(0 -191)">
+<path d="m1 252h106" stroke="#dd0" stroke-width="26"/>
+<path d="m21 124 33 16" fill="#f00"/>
+<g stroke="#000" stroke-width="1">
+<path d="m21 270h66v-35h-15v-8l-18-11-17 10c3 10-9 16-16 10z" fill="#eee"/>
+<circle cx="28" cy="202" r="9" fill="#0ff"/>
+<rect x="72" y="194" width="16" height="16" fill="#f0f"/>
+</g>
+<g stroke-width="3">
+<path d="m70 230h-27" stroke="#f00"/>
+<path d="m46 234.5v-9l-8 4z" fill="#f00"/>
+<path d="m76 240-13 23" stroke="#f60"/>
+<path d="m68 263-8-4 3e-3 9z" fill="#f60"/>
+<path d="m32 240 13 23" stroke="#000"/>
+<path d="m40 263 8-4-3e-3 9z"/>
+<path d="m70 236-23 13" stroke="#00f"/>
+<path d="m51 252-4-8-4 8z" fill="#00f"/>
+<path id="b" d="m28 225v-12" stroke="#777"/>
+<path id="a" d="m33 223h-9l4 8z" fill="#777"/>
+<use transform="translate(52)" xlink:href="#b"/>
+<use transform="translate(52)" xlink:href="#a"/>
+<use transform="translate(24 62)" xlink:href="#b"/>
+<use transform="translate(24 62)" xlink:href="#a"/>
+</g>
+<g fill="#000" font-family="sans" font-size="11px" text-anchor="middle">
+<text x="32" y="260">4</text>
+<text x="28" y="206">A</text>
+<text x="15" y="231">B</text>
+<text x="80" y="206">C</text>
+<text x="92" y="232">D</text>
+<text x="80" y="266">E</text>
+<text x="63" y="286">F</text>
+<text x="54" y="227" fill="#f00">1</text>
+<text x="52" y="242" fill="#00f">2</text>
+<text x="61" y="256" fill="#f60">3</text>
+</g>
+</g>
+</svg>

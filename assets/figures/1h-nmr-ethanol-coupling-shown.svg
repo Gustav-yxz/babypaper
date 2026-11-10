@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2285" height="1525">
+<path d="M2259.3 1380.7H26m2233.3 0v9.3m-558.6-9.3v9.3m-558.7-9.3v9.3m-558.7-9.3v9.3M26 1380.7v9.3m2233.3-9.3v12m-558.6-12v12m-558.7-12v12m-558.7-12v12m-557.3-12v12" fill="none" stroke="#000" stroke-width="1.5"/>
+<path d="M25.3 1380h105.4v-124l1.3 124h44V894.7l1.3 485.3h41.4l1.3-533.3V1380h41.5l1.3-149.3V1380h540l1.2-225.3 4 34.6V1380h722.7l1.3-488v488h41.5l1.3-1137.3V1380h44V953.3l1.2 426.7h638.7" fill="none" stroke="#4472c4" stroke-width="3"/>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1444" x="2249">0</tspan>
+</text>
+<path d="M1700.8 1430.4h-.1v-.2.1h.1z"/>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1444" x="1690.6">1</tspan>
+</text>
+<path d="M1142.4 1430.4h-.1v-.2h.1v.1h-.1.1z"/>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1444" x="1132.2">2</tspan>
+</text>
+<path d="M584 1430.3h-.1v-.1.1z"/>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1444" x="573.8">3</tspan>
+</text>
+<path d="M25.6 1430.3h-.2l.1-.2v.2zm0-.2l-.2.2h.1z"/>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1444" x="15.4">4</tspan>
+</text>
+<text font-size="40" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="1497.3" x="1097">/ppm</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="100" x="30">Ethanol</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="#0F0">
+<tspan y="800" x="170">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="red">
+<tspan y="1100" x="770">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="#00f">
+<tspan y="200" x="1540">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="#00f">
+<tspan y="300" x="200">H</tspan> <tspan y="400" x="300">H</tspan> <tspan y="200" x="300">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5">
+<tspan y="300" x="300">C</tspan> <tspan y="300" x="420">C</tspan> <tspan y="300" x="540">O</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="#00f">
+<tspan y="300" x="200">H</tspan> <tspan y="400" x="300">H</tspan> <tspan y="200" x="300">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="#0f0">
+<tspan y="400" x="420">H</tspan> <tspan y="200" x="420">H</tspan>
+</text>
+<text font-size="80" font-family="DejaVu Sans" stroke-width="1.5" fill="red">
+<tspan y="300" x="600">H</tspan>
+</text>
+<path d="M260 270h30m70 0h50m72 0h50m-202-65v30m0 70v30m120-130v30m0 70v30" stroke="#000" stroke-width="5"/>
+</svg>

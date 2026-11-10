@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-60 -85 105 105" width="400" height="400">
+<title>Weak acid speciation</title>
+<defs>
+	<pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+		<path d="M0,20v-20h20v20h-20" fill="none" stroke="#555" stroke-width=".5"/>
+	</pattern>
+</defs>
+<rect x="-40" width="80" height="-80" fill="url(#grid)" stroke="#000" stroke-width=".5"/>
+<path id="A" d="M-40.0,-0.8 Q -32.0,-1.2 -24.0,-4.7 -16.0,-8.1 -8.0,-22.8 0.0,-40.0 8.0,-57.2 16.0,-71.9 24.0,-75.3 32.0,-78.8 40.0,-79.2" stroke="#00f" fill="none"/>
+<use xlink:href="#A" transform="matrix(-1,0,0,1,0,0)" stroke="#a55"/>
+<g fill="#000" font-family="times" font-size="8" text-anchor="middle">
+	<switch><text y="8" id="trsvg14"><tspan x="-40" id="trsvg1">−2</tspan><tspan x="-20" id="trsvg2">−1</tspan><tspan x="0" id="trsvg3">0</tspan><tspan x="40" id="trsvg4">2</tspan><tspan x="20" id="trsvg5">1</tspan></text></switch>
+	<switch><text x="-44" y="0" id="trsvg15"><tspan id="trsvg6">0</tspan></text></switch><switch><text x="-46" y="-38" id="trsvg16"><tspan id="trsvg7">50</tspan></text></switch><switch><text x="-48" y="-76" id="trsvg17"><tspan id="trsvg8">100</tspan></text></switch>
+	<switch><text x="-54" y="-40" transform="rotate(-90,-54,-40)" id="trsvg18-mk" systemLanguage="mk"><tspan id="trsvg9-mk">% образување</tspan></text><text x="-54" y="-40" transform="rotate(-90,-54,-40)" id="trsvg18"><tspan id="trsvg9">% formation</tspan></text></switch>
+	<switch><text x="0" y="17" id="trsvg19"><tspan id="trsvg10">pH−pKa</tspan></text></switch><switch><text x="-30" y="-65" fill="#a55" id="trsvg20"><tspan id="trsvg11">AH</tspan></text></switch>
+	<switch><text x="30" y="-65" fill="#00f" id="trsvg21"><tspan id="trsvg12">A</tspan><tspan dy="-3" id="trsvg13">−</tspan></text></switch>
+</g>
+</svg>

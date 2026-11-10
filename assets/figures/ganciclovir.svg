@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.0"
+   width="598"
+   height="453"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <text
+     x="383.96317"
+     y="302.4046"
+     style="font-size:45px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     id="text3401"
+     xml:space="preserve"><tspan
+       x="383.96317"
+       y="302.4046"
+       id="tspan3403">O</tspan></text>
+  <use
+     transform="translate(-193.19168,-250.77037)"
+     id="use3406"
+     x="0"
+     y="0"
+     width="744.09448"
+     height="1052.3622"
+     xlink:href="#text3401" />
+  <text
+     x="515.63513"
+     y="256.64972"
+     style="font-size:45px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     id="text3409"
+     xml:space="preserve"><tspan
+       x="515.63513"
+       y="256.64972"
+       id="tspan3411">OH</tspan></text>
+  <text
+     x="96.966278"
+     y="162.03683"
+     style="font-size:45px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     id="text3414"
+     xml:space="preserve"><tspan
+       x="96.966278"
+       y="162.03683"
+       id="tspan3416">HN</tspan></text>
+  <text
+     x="324.61667"
+     y="139.01247"
+     style="font-size:45px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial"
+     id="text3420"
+     xml:space="preserve"><tspan
+       x="324.61667"
+       y="139.01247"
+       id="tspan3422">N</tspan></text>
+  <use
+     transform="translate(0,120.20815)"
+     id="use3425"
+     x="0"
+     y="0"
+     width="744.09448"
+     height="1052.3622"
+     xlink:href="#text3420" />
+  <use
+     transform="translate(-132.384,133.53621)"
+     id="use3428"
+     x="0"
+     y="0"
+     width="744.09448"
+     height="1052.3622"
+     xlink:href="#text3420" />
+  <text
+     x="14.908833"
+     y="272.54865"
+     style="font-size:45px;fill:#010101;font-family:Arial"
+     id="text6805">H</text>
+  <text
+     x="47.308743"
+     y="282.14917"
+     style="font-size:33px;fill:#010101;font-family:Arial"
+     id="text6809">
+    <tspan
+       style="font-family:Arial"
+       id="tspan2789">2</tspan>
+  </text>
+  <use
+     transform="translate(-258.58774,133.53622)"
+     id="use3715"
+     x="0"
+     y="0"
+     width="744.09448"
+     height="1052.3622"
+     xlink:href="#text3420" />
+  <path
+     d="M 433.96273,353.99865 L 443.56187,358.19806 L 458.8605,313.20442 L 433.96273,353.99865 z "
+     style="fill:#000000;stroke:none"
+     id="path2247" />
+  <path
+     d="M 514.35553,240.33196 L 458.85649,240.33196 L 459.15649,313.52561 L 419.25718,295.2272 M 384.15779,294.92722 L 341.25854,314.42553 L 341.25854,259.5303 M 225.16056,246.03147 L 271.65975,219.03381 M 162.16165,136.54097 L 208.66084,109.54332 L 271.65975,146.14014 M 145.66194,219.03381 L 192.16113,246.03147 M 153.4618,213.03433 L 195.76107,237.6322 M 145.66194,219.03381 L 145.66194,164.13858 M 324.75882,129.04163 L 271.65975,146.14014 M 271.65975,219.03381 L 271.65975,146.14014 M 280.65959,213.03433 L 280.65959,152.13962 M 373.05798,183.03694 L 343.05851,141.64053 M 324.75882,236.13233 L 271.65975,219.03381 M 353.85832,223.8334 L 383.8578,182.43699 L 354.15831,141.64053 M 145.66194,219.03381 L 98.862762,246.03147 M 213.16077,112.04332 L 213.16077,54.648075 M 204.16092,112.04332 L 204.16092,54.648075 M 438.7623,356.09835 L 466.6598,400.19212"
+     style="fill:none;stroke:#000000;stroke-width:3"
+     id="path2319" />
+  <use
+     transform="translate(-55.807284,176.94992)"
+     id="use3275"
+     x="0"
+     y="0"
+     width="598"
+     height="335"
+     xlink:href="#text3409" />
+</svg>
