@@ -1,0 +1,15 @@
+name: 数据自检
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/check-data.js
+      - name: CREDITS.md 与词库保持一致
+        run: node tools/build-credits.js && git diff --exit-code CREDITS.md
