@@ -8,6 +8,7 @@
          figPending 许可证待复核的原图页 · figIdea 示意图思路
          src 定义出处 · srclink 在线核对链接 · unverified 核实状态说明
          src 定义出处 · srclink 在线核对链接 · unverified 核实状态说明
+*/
 window.LP_KB = [
 {"w":"核苷","en":"nucleoside","cat":"分子基础","def":"碱基＋五碳糖组成的分子，不含磷酸。糖是核糖的叫核糖核苷（如腺苷、尿苷）。糖是脱氧核糖的叫脱氧核苷（如脱氧胸苷，简称胸苷）。","plain":"就是「碱基＋糖」，还没装上磷酸的半成品原料。","use":"许多抗病毒药就是改造过的核苷（核苷类似物）。结构像天然核苷，能骗过病毒的机器，但装上去会出问题。","chain":["碱基","核苷","核苷酸","DNA","RNA"],"fig":{"img":"assets/figures/pubchem-cid-60961.png","cap":"腺苷的二维结构式：腺嘌呤＋核糖、不带磷酸——核苷的典型样子。","credit":"结构图：PubChem CID 60961（美国 NCBI，公共领域）。","link":"https://pubchem.ncbi.nlm.nih.gov/compound/60961","linkLabel":"PubChem 化合物页 ↗","struct":true,"w":300,"h":300},"figs":[{"img":"assets/figures/pubchem-cid-6029.png","cap":"尿苷的二维结构式，尿嘧啶＋核糖。是 RNA 的四种核糖核苷之一。","credit":"结构图：PubChem CID 6029（美国 NCBI，公共领域）。","link":"https://pubchem.ncbi.nlm.nih.gov/compound/6029","linkLabel":"PubChem 化合物页 ↗","struct":true,"w":300,"h":300}]},
 {"w":"核苷酸","en":"nucleotide","cat":"分子基础","def":"核苷再连上磷酸基团，就是核苷酸，它是核酸的基本组成单位。连 1 个磷酸叫单磷酸（NMP），连 2 个叫二磷酸（NDP）。连 3 个叫三磷酸（NTP）。","plain":"核苷装上磷酸，才是细胞真正能用的「成品原料」。","use":"文献里说某某药的「活性形式」通常指它的三磷酸核苷酸。","trap":"把单磷酸说成核苷酸的「基本单位」正好说反了。核苷酸的定义就是碱基＋糖＋磷酸。带一个磷酸的 NMP 本身就是完整的核苷酸。","chain":["核苷","单磷酸","二磷酸","三磷酸"],"fig":{"img":"assets/figures/pubchem-cid-5957.png","cap":"代表性核苷酸示例，ATP，碱基＋糖＋三个磷酸。是核苷酸的完整形态。","credit":"结构图：PubChem CID 5957（美国 NCBI，公共领域）。","link":"https://pubchem.ncbi.nlm.nih.gov/compound/5957","linkLabel":"PubChem 化合物页 ↗","struct":true,"w":300,"h":300}},
