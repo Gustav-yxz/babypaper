@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="宝宝文献：贴一段药学文献，基础概念自动标出，点词即看定义、一句话解释和逻辑位置。纯前端，文献不上传。" />
+    <meta property="og:title" content="宝宝文献 · 药学版" />
+    <meta property="og:description" content="读文献卡在基础概念上？贴进来，点一下，当场查清。" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#F6F3EC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151412" media="(prefers-color-scheme: dark)" />
+    <title>宝宝文献 · 药学版</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232F4A6B'/%3E%3Crect x='7' y='17' width='18' height='6' rx='1.5' fill='%23F3D97B'/%3E%3Cpath d='M8 11h16M8 20h11' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <!-- 主题要在首屏绘制前定下来，避免深色模式下先闪一下浅色 -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("lp:theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <!-- ============ 顶栏 ============ -->
+    <header class="appbar">
+      <div class="shell appbar-inner">
+        <a class="brand" href="#read" aria-label="宝宝文献，回到阅读页">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="var(--accent)" />
+            <rect x="7" y="17" width="18" height="6" rx="1.5" fill="var(--mark-strong)" />
+            <path d="M8 11h16M8 20h11" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" />
+          </svg>
+          <span class="brand-name">宝宝文献</span>
+          <span class="brand-edition">药学版</span>
+        </a>
+        <nav class="tabs" role="tablist" aria-label="功能">
+          <button role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true" data-tab="read">边读边查</button>
+          <button role="tab" id="tab-chain" aria-controls="panel-chain" aria-selected="false" tabindex="-1" data-tab="chain">逻辑链</button>
+          <button role="tab" id="tab-lib" aria-controls="panel-lib" aria-selected="false" tabindex="-1" data-tab="lib">术语库</button>
+          <button role="tab" id="tab-exp" aria-controls="panel-exp" aria-selected="false" tabindex="-1" data-tab="exp">实验速查</button>
+          <button role="tab" id="tab-note" aria-controls="panel-note" aria-selected="false" tabindex="-1" data-tab="note">生词本<span class="tab-badge" id="noteCount" hidden></span></button>
+          <button role="tab" id="tab-about" aria-controls="panel-about" aria-selected="false" tabindex="-1" data-tab="about">关于</button>
+        </nav>
+        <div class="appbar-tools">
+          <a class="icon-btn" id="repoLink" href="#" target="_blank" rel="noopener" aria-label="在 GitHub 上查看源码" title="在 GitHub 上查看源码" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="切换配色" title="切换配色">
+            <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8 8 0 0 1 9.8 4a8 8 0 1 0 10.2 10.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell" id="main">
+      <!-- ============ 边读边查 ============ -->
+      <section class="panel on" id="panel-read" role="tabpanel" aria-labelledby="tab-read">
+        <div class="hero">
+          <p class="eyebrow">药学文献 · 基础概念速查</p>
+          <h1>读文献卡在基础概念上？当场查清。</h1>
+          <p class="lede">贴一段文献进来，词库里的基础词会自动标出。点一下，就能看到定义、一句话解释，以及它在整条逻辑里的位置。</p>
+          <ul class="stats" id="stats" aria-label="内容规模"></ul>
+        </div>
+
+        <div class="source">
+          <div class="source-row">
+            <div class="seg" role="group" aria-label="选择要读的文献">
+              <button type="button" id="modeSample" aria-pressed="true">示例文献</button>
+              <button type="button" id="modePaste" aria-pressed="false">粘贴文本</button>
+              <button type="button" id="modeFile">导入文件</button>
+              <button type="button" id="modeOcr" aria-pressed="false">识别扫描件</button>
+            </div>
+            <p class="source-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7.5a5 5 0 0 1 10 0V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="5" y="10" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>全部在你的浏览器里运行，文献不会上传</p>
+            <input type="file" id="fileInput" accept=".txt,.md,.markdown,.pdf,text/plain,text/markdown,application/pdf" hidden />
+          </div>
+          <p class="status src-status" id="srcStatus" role="status" hidden></p>
+
+          <div class="paste-box" id="pasteBox" hidden>
+            <label class="sr-only" for="customTitle">标题（选填）</label>
+            <input type="text" id="customTitle" placeholder="标题（选填），例如：某论文 · 引言第 2 段" />
+            <label class="sr-only" for="customText">文献原文</label>
+            <textarea id="customText" placeholder="把文献里的一段粘贴到这里，中文、英文都可以。&#10;建议一次贴 1–3 段，读完再贴下一段。"></textarea>
+            <div class="paste-actions">
+              <button class="btn primary" id="loadCustom" type="button">开始阅读</button>
+              <button class="btn ghost" id="clearPaste" type="button">清空</button>
+              <span class="muted" id="charCount">0 字</span>
+            </div>
+            <p class="muted small">支持直接导入 .txt、.md、.pdf。带 Markdown 标记的文本会自动清理成纯文本；单次最多载入 80,000 字。也可以把文件直接拖进页面。</p>
+          </div>
+
+          <div class="ocr-box" id="ocrBox" hidden>
+            <h2>识别扫描版 PDF 或图片</h2>
+            <p>只有当 PDF 没有文字层（扫描件、拍照件）时才需要 OCR；有文字层的 PDF 请用「导入文件」，结果更准。识别在你的浏览器里完成，文件不会上传。第一次使用需要联网下载识别引擎和语言包。</p>
+            <div class="ocr-controls">
+              <button class="btn" id="ocrPick" type="button">选择文件</button>
+              <input type="file" id="ocrFileInput" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp" hidden />
+              <span class="muted" id="ocrFileName">还没有选择文件</span>
+            </div>
+            <div class="ocr-controls">
+              <label for="ocrLang">识别语言</label>
+              <select id="ocrLang">
+                <option value="chi_sim+eng" selected>中文 + 英文</option>
+                <option value="eng">仅英文（更快）</option>
+                <option value="chi_sim">仅简体中文</option>
+              </select>
+              <label for="ocrPages">最多识别</label>
+              <select id="ocrPages">
+                <option value="3">前 3 页</option>
+                <option value="5" selected>前 5 页</option>
+                <option value="10">前 10 页</option>
+              </select>
+            </div>
+            <div class="ocr-actions">
+              <button class="btn primary" id="ocrStart" type="button" disabled>开始识别</button>
+              <button class="btn ghost" id="ocrCancel" type="button" hidden>取消</button>
+              <button class="btn ghost" id="ocrDownload" type="button" hidden>下载 Markdown</button>
+            </div>
+            <div class="progress" id="ocrBar" hidden><i id="ocrBarFill"></i></div>
+            <p class="status" id="ocrStatus" role="status"></p>
+          </div>
+        </div>
+
+        <div class="reader-grid">
+          <article class="passage" id="passage" aria-label="文献阅读区">
+            <header class="passage-head">
+              <p class="passage-meta" id="passageSrc"></p>
+              <div class="read-tools" role="group" aria-label="阅读排版">
+                <button type="button" id="fontDown" aria-label="缩小字号" title="缩小字号">A<span aria-hidden="true">−</span></button>
+                <button type="button" id="fontUp" aria-label="放大字号" title="放大字号">A<span aria-hidden="true">+</span></button>
+                <button type="button" id="leadingBtn" aria-pressed="false" title="行距">宽行距</button>
+                <button type="button" id="faceBtn" aria-pressed="false" title="正文字体">黑体</button>
+              </div>
+            </header>
+            <div class="passage-body" id="passageBody"></div>
+          </article>
+
+          <aside class="defcard" id="defCard" aria-label="词条解释">
+            <div class="def-toolbar">
+              <button class="icon-btn" id="defBack" type="button" aria-label="返回上一个词条" title="返回上一个词条" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span class="def-toolbar-title">词条解释</span>
+              <button class="icon-btn" id="defClose" type="button" aria-label="关闭" title="关闭">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <div id="defBody" aria-live="polite"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ 逻辑链 ============ -->
+      <section class="panel" id="panel-chain" role="tabpanel" aria-labelledby="tab-chain" hidden>
+        <div class="page-head">
+          <h1>逻辑链</h1>
+          <p>把零散的概念串成一条因果线。点任意一环，看这一步在说什么。</p>
+        </div>
+        <div class="chain-list" id="chainList"></div>
+      </section>
+
+      <!-- ============ 术语库 ============ -->
+      <section class="panel" id="panel-lib" role="tabpanel" aria-labelledby="tab-lib" hidden>
+        <div class="page-head">
+          <h1>术语库</h1>
+          <p>按学科浏览，或直接搜索。每个词条都有定义、一句话解释和出处。</p>
+        </div>
+        <div class="lib-tools">
+          <div class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="search" id="libSearch" placeholder="搜索词条：中文、英文或缩写，如 EC50、激酶、prodrug" aria-label="搜索词条" autocomplete="off" />
+          </div>
+          <span class="muted" id="libCount" role="status"></span>
+          <div class="seg small" role="group" aria-label="列表密度">
+            <button type="button" id="densComfy" aria-pressed="true">卡片</button>
+            <button type="button" id="densCompact" aria-pressed="false">紧凑</button>
+          </div>
+        </div>
+        <div class="chips" id="libChips" role="group" aria-label="按分类筛选"></div>
+        <div class="lib-grid" id="libGrid"></div>
+        <p class="empty-line" id="libNone" hidden>没有找到相关词条。换个说法，或试试英文名和缩写。</p>
+      </section>
+
+      <!-- ============ 实验速查 ============ -->
+      <section class="panel" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp" hidden>
+        <div id="expListView">
+          <div class="page-head">
+            <h1>实验速查</h1>
+            <p id="expIntro"></p>
+            <p class="callout warn">每条只代表一篇论文的条件，不是通用操作规程。卡片上的五个分数是编者的主观印象，没有统一细则；具体危害见每条里的「主要危害」。</p>
+          </div>
+          <div class="chips" id="expChips" role="group" aria-label="按分类筛选实验"></div>
+          <div class="cmpbar">
+            <span class="cmpbar-text"><b>对比</b><span id="expCmpNames"></span></span>
+            <span class="cmpbar-actions">
+              <button class="btn primary" id="expCmpGo" type="button" disabled>查看对比</button>
+              <button class="btn ghost" id="expCmpClear" type="button" hidden>清空</button>
+            </span>
+          </div>
+          <div class="exp-grid" id="expGrid"></div>
+        </div>
+        <div class="exp-detail" id="expDetail" hidden></div>
+        <div class="exp-detail" id="expCmpView" hidden></div>
+      </section>
+
+      <!-- ============ 生词本 ============ -->
+      <section class="panel" id="panel-note" role="tabpanel" aria-labelledby="tab-note" hidden>
+        <div class="page-head">
+          <h1>生词本</h1>
+          <p id="noteBarText"></p>
+        </div>
+        <div class="note-actions" id="noteActions" hidden>
+          <button class="btn" id="copyNotes" type="button">复制全部</button>
+          <button class="btn" id="quizNotes" type="button" aria-pressed="false">自测</button>
+          <button class="btn" id="exportNotes" type="button">导出 Markdown</button>
+          <button class="btn" id="ankiNotes" type="button">导出 Anki</button>
+          <button class="btn ghost danger" id="clearNotes" type="button">清空</button>
+        </div>
+        <div id="noteList"></div>
+        <section class="mastered-box" id="masteredBox" hidden></section>
+      </section>
+
+      <!-- ============ 关于 ============ -->
+      <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" hidden>
+        <div class="page-head">
+          <h1>关于</h1>
+          <p>宝宝文献是一个开源的小工具：帮药学方向的同学在读文献时，把卡住的基础概念当场补上。</p>
+        </div>
+        <div class="about">
+          <section class="about-card">
+            <h2>怎么用</h2>
+            <ol class="steps">
+              <li><b>放入文献</b>粘贴一段文字，或导入 .txt、.md、.pdf 文件。扫描版 PDF 和图片可以用 OCR 识别。没有文献时，先用示例练手。</li>
+              <li><b>点词或划词</b>词库里的基础词会带底色，中英文都认，点一下就出解释。其他词用鼠标划选（手机上长按拖选），再点「查这个词」。已经会的词，点「已掌握，不再标」，正文会清爽很多。</li>
+              <li><b>把概念串起来</b>先看解释里的「逻辑位置」，再到「逻辑链」看完整的因果线。记不住的词加入生词本，读完用「自测」过一遍，或导出到 Anki。</li>
+            </ol>
+          </section>
+
+          <section class="about-card">
+            <h2>定义从哪来</h2>
+            <p>每条「基础定义」都按教材、规范或公开资料的通行表述转写，并在词条底部注明对照的来源。「一句话」和「为什么重要」是通俗转述，用来帮你读通句子。<b>正式引用时，请以教材和文献原文为准。</b></p>
+            <dl class="src-table">
+              <dt>生物化学与细胞</dt>
+              <dd>《生物化学与分子生物学》（人卫，第 9 版）、Lehninger《生物化学原理》、Alberts《细胞的分子生物学》、OpenStax《Biology 2e》《Chemistry 2e》</dd>
+              <dt>药理学</dt>
+              <dd>《药理学》（杨宝峰、陈建国主编，人卫，第 9 版）、Katzung《基础与临床药理学》（第 15 版）、Goodman &amp; Gilman《治疗学的药理学基础》（第 14 版）、Rang &amp; Dale《药理学》（第 9 版）、IUPHAR 术语</dd>
+              <dt>药物化学</dt>
+              <dd>《药物化学》（尤启冬主编，人卫）、Foye《药物化学原理》、Clayden《有机化学》、IUPAC《Glossary of Terms Used in Medicinal Chemistry》</dd>
+              <dt>药物分析</dt>
+              <dd>ICH Q2(R2)、Q1A、Q3、Q6A；USP 通则〈621〉〈711〉〈1225〉；《中国药典》通则；《欧洲药典》2.2.46；FDA 与 EMA 的生物分析方法验证指导原则</dd>
+              <dt>药剂学与生药学</dt>
+              <dd>《药剂学》（人卫，第 8 版）、《天然药物化学》《生药学》（人卫）、《中国药典》2020 年版通则</dd>
+              <dt>病毒学与抗病毒核苷</dt>
+              <dd>《医学微生物学》（人卫）、PMC 开放文献、Stanford HIVDB 的耐药口径；前药部分参考 Meier 课题组的 cycloSal、DiPPro、TriPPPro 系列</dd>
+              <dt>人名反应</dt>
+              <dd>主要对照 Wikipedia 相应条目与 LibreTexts 开放教材，每条都附了原始链接，建议再与有机化学教材核对</dd>
+              <dt>统计与试验设计</dt>
+              <dd>《医学统计学》（人卫）</dd>
+              <dt>名称与数据核对</dt>
+              <dd>PubChem、ChEMBL、NCBI Bookshelf / StatPearls，以及 RDKit、DeepChem 的开源教程</dd>
+            </dl>
+            <p class="muted small">教材未逐条标注页码。发现错误欢迎指正。</p>
+          </section>
+
+          <section class="about-card">
+            <h2>配图与许可证</h2>
+            <p id="aboutFigs"></p>
+            <p>图片只来自两类开放来源：PubChem 的二维结构式（公共领域），以及 Wikimedia Commons 和 OpenStax 的原图（公共领域、CC0、CC BY 或 CC BY-SA）。每张图的作者和许可证都写在图注里，完整清单见仓库中的 <code>CREDITS.md</code>。</p>
+            <p>还没有合适开放图片的词条，给出的是「示意图思路」——告诉你这张图应该怎么画。本项目不使用商业教科书插图。</p>
+          </section>
+
+          <section class="about-card">
+            <h2>隐私</h2>
+            <p>这是一个纯前端页面，没有账号，也没有后台。你粘贴或导入的文献只留在当前页面里，关闭即清除；生词本和阅读偏好保存在这台设备的浏览器中。</p>
+            <p>只有两种情况会联网：导入 PDF 时加载 pdf.js，使用 OCR 时加载 Tesseract.js 和语言包。它们都在本机处理文件，不会把内容传出去。</p>
+          </section>
+
+          <section class="about-card">
+            <h2>局限</h2>
+            <ul>
+              <li>词库侧重药物化学、药理学和药物分析，其他方向的术语可能查不到。</li>
+              <li>自动标词靠字面匹配，偶尔会标错或漏标；多义词请结合上下文判断。英文能认出复数，但认不出动词变形（如 phosphorylated）。</li>
+              <li>导入 PDF 只取文字：图表、公式和版式不会保留，也不能和原文对照着看。</li>
+              <li>OCR 难免有错字，关键数字、剂量和术语请对照原文。</li>
+              <li>实验速查里的每一条只是一篇论文的做法，不是通用操作规程；五个分数是编者的主观印象。动手前务必阅读原文、查阅试剂的 SDS，并遵守所在实验室的安全规程。</li>
+              <li>部分出处引的是旧版教材或《中国药典》2020 年版，尚未对照新版更新。</li>
+              <li>本工具用于学习，不构成任何用药或临床建议。</li>
+            </ul>
+          </section>
+
+          <section class="about-card">
+            <h2>参与贡献</h2>
+            <p>词条、逻辑链和实验数据都是 <code>data/</code> 目录下的纯文本文件，一行一条，改起来很方便。欢迎补充词条、纠正定义、提供可开放使用的配图，具体做法见仓库里的 <code>README.md</code>。</p>
+            <p class="muted small">界面设计参考了默读 Modureader、Yomitan、Skola、Elementro、Avogadro 等开源项目的版式与交互思路，代码与素材均为自有。</p>
+          </section>
+
+          <section class="about-card">
+            <h2>许可证</h2>
+            <p>代码按 MIT 许可证开源。词库、逻辑链、实验速查等内容按 CC BY-SA 4.0 发布：可以转载和改编，但要署名，改编后的成果也要沿用同一许可证。配图不在此列，每张图沿用原作者的许可证，写在图注里。</p>
+            <p class="muted small">完整条款见仓库中的 <code>LICENSE</code>、<code>LICENSE-CONTENT.md</code> 与 <code>CREDITS.md</code>。</p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell site-foot">
+      <p>定义为教材口径的转述，正式引用请以原文为准。 · 文献只在本机处理，不上传。</p>
+    </footer>
+
+    <button id="selBtn" type="button" hidden>查这个词</button>
+    <div class="scrim" id="scrim" hidden></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <div class="lightbox" id="figOverlay" role="dialog" aria-modal="true" aria-label="查看大图" hidden>
+      <div class="lightbox-inner">
+        <button class="icon-btn lightbox-close" id="figClose" type="button" aria-label="关闭大图" title="关闭">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <figure>
+          <img id="figBig" alt="" />
+          <figcaption id="figCap"></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 示例文献：手工标注的词条，data-term 对应词库里的词条名 -->
+    <template id="tplSample">
+      <h2>为什么核苷类药物常常做成前药？</h2>
+      <p>许多抗病毒<span class="term" data-term="核苷">核苷</span>本身并不能直接起效。它们必须先在细胞内被<span class="term" data-term="激酶">激酶</span>逐步<span class="term" data-term="磷酸化">磷酸化</span>，最后变成<span class="term" data-term="三磷酸">三磷酸</span>形式，才能冒充天然原料，被病毒的<span class="term" data-term="聚合酶">聚合酶</span>用上。掺入之后，它们让正在延长的 DNA 链停下来。问题出在第一步磷酸化：它往往最慢，是整条路上的<span class="term" data-term="限速步骤">限速步骤</span>，有些核苷甚至根本过不了这一步。</p>
+      <p><span class="term" data-term="前药">前药</span>策略的思路是绕开它。先在实验室里把第一份磷酸装好，再用一个脂溶性的<span class="term" data-term="掩蔽基团">掩蔽基团</span>把磷酸上的负<span class="term" data-term="电荷">电荷</span>盖住，分子就能穿过<span class="term" data-term="细胞膜">细胞膜</span>。进入细胞后，靠化学水解或<span class="term" data-term="酯酶">酯酶</span>把盖子拆掉，直接放出<span class="term" data-term="单磷酸">单磷酸</span>产物。cycloSal 方案用水杨醇骨架做掩蔽基团，拆盖只靠 pH 驱动的<span class="term" data-term="水解">水解</span>，不依赖酶，所以在不同细胞里的表现更可预测。</p>
+      <p>评价这类化合物主要看三个数。抗病毒活性用 <span class="term" data-term="EC50">EC<sub>50</sub></span> 表示，对细胞的毒性用 <span class="term" data-term="CC50">CC<sub>50</sub></span> 表示，两者相除得到<span class="term" data-term="选择性指数">选择性指数</span>，越大越好。化合物在血浆里能撑多久，看<span class="term" data-term="半衰期">半衰期</span>。另外，磷原子连上掩蔽基团后会形成<span class="term" data-term="手性中心">手性中心</span>，同一批产物里混着 <span class="term" data-term="RpSp">R<sub>p</sub> 和 S<sub>p</sub></span> 两种<span class="term" data-term="非对映异构体">非对映异构体</span>。两者的活性和水解速度常常差很多，读数据表时必须分开看。</p>
+    </template>
+
+    <script src="data/kb.js"></script>
+    <script src="data/chains.js"></script>
+    <script src="data/experiments.js"></script>
+    <script src="assets/js/en-terms.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

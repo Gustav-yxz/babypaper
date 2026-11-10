@@ -1,0 +1,13 @@
+{
+  "name": "lit-primer",
+  "version": "1.0.0",
+  "private": true,
+  "license": "(MIT AND CC-BY-SA-4.0)",
+  "description": "宝宝文献：贴一段药学文献，基础概念自动标出，点词即看定义、一句话解释和逻辑位置。",
+  "scripts": {
+    "serve": "node tools/serve.js",
+    "check": "node tools/check-data.js",
+    "credits": "node tools/build-credits.js",
+    "build": "node tools/build-single.js"
+  }
+}
