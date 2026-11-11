@@ -9,7 +9,7 @@
 
   var CONFIG = {
     /* 发布到 GitHub 后填上仓库地址，顶栏会出现源码入口 */
-    repoUrl: "https://github.com/Gustav-yxz/lit-primer",
+    repoUrl: "https://github.com/Gustav-yxz/babypaper",
     maxChars: 80000,
     ocrMaxPages: 10,
     pdfjsBase: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/",
