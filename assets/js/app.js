@@ -569,6 +569,7 @@
   var doc = null;           /* 当前载入的文献 {paras, title, origin, len}；null 表示正在看示例 */
   function showSample() {
     doc = null;
+    $("panel-read").classList.remove("is-reading");
     passageBody.innerHTML = $("tplSample").innerHTML
       + tip("试试看：点一个带底色的词；没有底色的词（比如「脂溶性」）可以划选，再点「查这个词」。");
     $$(".term", passageBody).forEach(function (el) {
@@ -704,6 +705,7 @@
     if (truncated) raw = raw.slice(0, CONFIG.maxChars);
     doc = { paras: toParagraphs(raw, opts.forceJoin), title: opts.title || "", origin: opts.origin || "", len: raw.length };
     renderDoc();
+    $("panel-read").classList.add("is-reading");
     $("modeSample").setAttribute("aria-pressed", "false");
     setPasteOpen(false);
     srcStatus(truncated ? "原文较长，只载入了前 " + num(CONFIG.maxChars) + " 字。读完这部分再载入后面的内容。" : "");
@@ -1524,8 +1526,8 @@
   (function init() {
     var withFig = KB.filter(function (t) { return t.fig; });
     var figCount = withFig.reduce(function (n, t) { return n + 1 + (t.figs ? t.figs.length : 0); }, 0);
-    $("stats").innerHTML = [[KB.length, "个词条"], [withFig.length, "条配有图片"], [CHAINS.length, "条逻辑链"], [EXPS.length, "个实验"]]
-      .map(function (s) { return "<li><b>" + num(s[0]) + "</b>" + s[1] + "</li>"; }).join("");
+    $("stats").innerHTML = [[KB.length, "词条"], [withFig.length, "配图词条"], [CHAINS.length, "逻辑链"], [EXPS.length, "实验案例"]]
+      .map(function (s) { return "<li><b>" + num(s[0]) + "</b><span>" + s[1] + "</span></li>"; }).join("");
     $("aboutFigs").textContent = "目前有 " + withFig.length + " 个词条配了图，共 " + figCount + " 张。";
     $("expIntro").textContent = EXPS.length + " 个论文案例，分 " + expCats().length + " 类。每条概括自一篇公开论文里的做法：流程、用量、注意事项，并附原文链接。";
     if (CONFIG.repoUrl) { $("repoLink").href = CONFIG.repoUrl; $("repoLink").hidden = false; }
